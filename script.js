@@ -85,6 +85,7 @@ function displayJogadoras() {
           <li><span class="stat-label">Jogos</span><span class="stat-value">${j.jogos}</span></li>
         </ul>
         <button class="edit-btn" onclick="editarJogadora(${index})">Editar</button>
+        <button class="delete-btn" onclick="deletarJogadora(${index})">Excluir</button>
       </div>
     `;
   });
@@ -157,5 +158,16 @@ function editarJogadora(index) {
   displayJogadoras();
   alert("Jogadora editada com sucesso!");
 }
+
+function deletarJogadora(index) {
+  const confirmar = confirm("Você realmente deseja excluir esta jogadora?");
+  if (confirmar) {
+    jogadoras.splice(index, 1); // remove do array
+    salvarLocalStorage();       // salva no localStorage
+    displayJogadoras();         // atualiza a tela
+    alert("Jogadora excluída com sucesso!");
+  }
+}
+
 
 displayJogadoras();
