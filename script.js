@@ -53,11 +53,37 @@ let jogadoras = [
 
 window.onload = function(infosDoEvento) {
     carregarLocalStorage();
-    displayPosts();
+    displayJogadoras();
 
     document.getElementById('jogadorasform').addEventListener('submit', addJogadora); 
     document.querySelector('#jogadorasList').addEventListener('click', handleClick);
 };
 function salvarLocalStorage(){
     localStorage.setItem("jogadoras", JSON.stringify(jogadoras))
+}
+function carregarLocalStorage() {
+  let data = localStorage.getItem("jogadoras");
+  if (data) jogadoras = JSON.parse(data);
+}
+
+function displayJogadoras() {
+  const list = document.getElementById('jogadorasList');
+  list.innerHTML = "";
+
+  jogadoras.forEach(j => {
+    list.innerHTML += `
+      <div class="card">
+        <img class="card-photo" src="${j.foto}" alt="${j.nome}">
+        <div class="card-header">
+          <h2 class="card-name">${j.nome}</h2>
+          <p class="card-meta">${j.posicao} • ${j.clube}</p>
+        </div>
+        <ul class="card-stats">
+          <li><span class="stat-label">Gols</span><span class="stat-value">${j.gols}</span></li>
+          <li><span class="stat-label">Assist.</span><span class="stat-value">${j.assistencias}</span></li>
+          <li><span class="stat-label">Jogos</span><span class="stat-value">${j.jogos}</span></li>
+        </ul>
+      </div>
+    `;
+  });
 }
