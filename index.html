@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Elenco</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elenco</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <header class="topbar">
-    <h1>Elenco</h1>
-    <p>Foto, posição, clube e estatísticas</p>
-  </header>
+    <header class="topbar">
+        <h1>Elenco</h1>
+        <p>Foto, posição, clube e estatísticas</p>
+    </header>
     <main>
         <h1>Adicionar Jogadora</h1>
         <form id="addJogadoraForm">
@@ -25,8 +27,11 @@
         </form>
         <h1>Jogadoras</h1>
         <input type="text" id="searchInput" placeholder="Buscar por nome ou posição...">
+        <button onclick="ordenarPorNome()" class="sort-btn">Ordenar por Nome</button>
+        <button onclick="ordenarPorPosicao()" class="sort-btn">Ordenar por Posição</button>
         <div class="grid" id="jogadorasList"></div>
     </main>
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>
