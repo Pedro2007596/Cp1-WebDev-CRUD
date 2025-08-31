@@ -107,3 +107,65 @@ body {
 .favorite-btn.active {
   color: gold;
 }
+h1 {
+  font-size: 2.2rem;
+  margin: 25px 0 15px;
+  text-align: center;
+  font-weight: 700;
+  background: linear-gradient(90deg, #69d3ff, #c0a7ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+form#addJogadoraForm {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  max-width: 380px;
+  margin: 30px auto;
+  padding: 28px 24px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  animation: fadeIn 0.6s ease;
+}
+
+form#addJogadoraForm input {
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  font-size: 15px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+form#addJogadoraForm input::placeholder {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+form#addJogadoraForm input:focus {
+  border-color: #7db6ff;
+  box-shadow: 0px 0px 8px rgba(125, 182, 255, 0.6);
+  outline: none;
+}
+
+form#addJogadoraForm button {
+  background: linear-gradient(90deg, #4CAF50, #45a049);
+  color: white;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+form#addJogadoraForm button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 12px rgba(76, 175, 80, 0.6);
+}

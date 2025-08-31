@@ -11,9 +11,21 @@
     <h1>Elenco</h1>
     <p>Foto, posição, clube e estatísticas</p>
   </header>
-
-
-    <main class="grid" id="jogadorasList"></main>
+    <main>
+        <h1>Adicionar Jogadora</h1>
+        <form id="addJogadoraForm">
+            <input type="text" id="nome" placeholder="Nome" required>
+            <input type="text" id="posicao" placeholder="Posição" required>
+            <input type="text" id="clube" placeholder="Clube" required>
+            <input type="url" id="foto" placeholder="URL da Foto" required>
+            <input type="number" id="gols" placeholder="Gols" required min="0">
+            <input type="number" id="assistencias" placeholder="Assistências" required min="0">
+            <input type="number" id="jogos" placeholder="Jogos" required min="0">
+            <button type="submit">Adicionar</button>
+        </form>
+        <h1>Jogadoras</h1>
+        <div class="grid" id="jogadorasList"></div>
+    </main>
   <script src="script.js"></script>
 </body>
 </html>
