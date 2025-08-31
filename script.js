@@ -3,7 +3,7 @@ let jogadoras = [
     "nome": "Andressa Alves",
     "posicao": "Meio-campo",
     "clube": "Corinthians",
-    "foto": "https://example.com/andressa.jpg",
+    "foto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBDJSmz0p2IZaujirFQ4StkH1EtMC6ptVjeg&s",
     "gols": 15,
     "assistencias": 10,
     "jogos": 28,
@@ -13,7 +13,7 @@ let jogadoras = [
     "nome": "Dayana Rodríguez",
     "posicao": "Meio-campo",
     "clube": "Corinthians",
-    "foto": "https://example.com/dayana.jpg",
+    "foto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhS8c-g5AzPuTka4I67uNSNChAs2jD-CwGFw&s",
     "gols": 5,
     "assistencias": 12,
     "jogos": 30,
@@ -23,7 +23,7 @@ let jogadoras = [
     "nome": "Mariza",
     "posicao": "Zagueira",
     "clube": "Corinthians",
-    "foto": "https://example.com/mariza.jpg",
+    "foto": "https://cdn.acritica.net/upload/dn_arquivo/2025/04/174318471777c67132097f9b1ff028aed0eca8d21b.png",
     "gols": 2,
     "assistencias": 1,
     "jogos": 32,
@@ -33,7 +33,7 @@ let jogadoras = [
     "nome": "Thaís Regina",
     "posicao": "Zagueira",
     "clube": "Corinthians",
-    "foto": "https://example.com/thais.jpg",
+    "foto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdmWnYK0MkyrFAHK0LKLwwHmbRPCK96yc2jg&s",
     "gols": 1,
     "assistencias": 2,
     "jogos": 25,
@@ -43,7 +43,7 @@ let jogadoras = [
     "nome": "Letícia Teles",
     "posicao": "Zagueira",
     "clube": "Corinthians",
-    "foto": "https://example.com/leticia.jpg",
+    "foto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTL4xJeSCyx4gHbwsfPFXkTKkXWjr77osoU6A&s",
     "gols": 0,
     "assistencias": 0,
     "jogos": 18,
@@ -55,7 +55,7 @@ window.onload = function(infosDoEvento) {
     carregarLocalStorage();
     displayJogadoras();
 
-    document.getElementById('jogadorasform').addEventListener('submit', addJogadora); 
+    document.getElementById('addJogadoraForm').addEventListener('submit', addJogadora);
     document.querySelector('#jogadorasList').addEventListener('click', handleClick);
 };
 function salvarLocalStorage(){
@@ -96,3 +96,35 @@ function displayJogadoras() {
     });
   });
 }
+
+function addJogadora(e) {
+  e.preventDefault();
+
+  const nome = document.getElementById("nome").value;
+  const posicao = document.getElementById("posicao").value;
+  const clube = document.getElementById("clube").value;
+  const foto = document.getElementById("foto").value;
+  const gols = parseInt(document.getElementById("gols").value, 10);
+  const assistencias = parseInt(document.getElementById("assistencias").value, 10);
+  const jogos = parseInt(document.getElementById("jogos").value, 10);
+
+  const novaJogadora = {
+    nome,
+    posicao,
+    clube,
+    foto,
+    gols,
+    assistencias,
+    jogos,
+    favorita: false
+  };
+
+  jogadoras.push(novaJogadora);
+  salvarLocalStorage();
+  displayJogadoras();
+
+  // limpa o form
+  e.target.reset();
+}
+
+displayJogadoras();
