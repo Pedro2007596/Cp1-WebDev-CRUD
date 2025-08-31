@@ -73,7 +73,7 @@ Aplicação web para gerenciar informações de jogadoras de futebol, com **CRUD
 
 --
 
-##Membros do grupo
+## Membros do grupo
 
 - Pedro Henrique
 - Nathália Cordeiro
