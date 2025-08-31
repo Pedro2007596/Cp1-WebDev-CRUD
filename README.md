@@ -70,3 +70,11 @@ Aplicação web para gerenciar informações de jogadoras de futebol, com **CRUD
 - **HTML5** – Estrutura e elementos da página
 - **CSS3** – Estilo visual dos cards, botões e inputs
 - **JavaScript (Vanilla JS)** – CRUD, LocalStorage, busca, filtro e ordenação
+
+--
+
+##Membros do grupo
+
+- Pedro Henrique
+- Nathália Cordeiro
+- Bruno Bagattini
