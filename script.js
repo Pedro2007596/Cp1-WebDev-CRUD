@@ -197,6 +197,19 @@ function buscarJogadoras() {
   });
 }
 
+function ordenarPorNome() {
+  jogadoras.sort((a, b) => a.nome.localeCompare(b.nome));
+  salvarLocalStorage();
+  displayJogadoras();
+}
+
+function ordenarPorPosicao() {
+  jogadoras.sort((a, b) => a.posicao.localeCompare(b.posicao));
+  salvarLocalStorage();
+  displayJogadoras();
+}
+
+
 document.getElementById("searchInput").addEventListener("input", buscarJogadoras);
 
 
