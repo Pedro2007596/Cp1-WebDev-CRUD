@@ -124,6 +124,7 @@ function addJogadora(e) {
   displayJogadoras();
 
   // limpa o form
+  alert("Jogadora adicionada com sucesso!");
   e.target.reset();
 }
 
