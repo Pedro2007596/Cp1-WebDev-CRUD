@@ -70,10 +70,10 @@ function displayJogadoras() {
   const list = document.getElementById('jogadorasList');
   list.innerHTML = "";
 
-  jogadoras.forEach(j => {
+  jogadoras.forEach((j, index) => {
     list.innerHTML += `
       <div class="card">
-        <span class="favorite-btn ${j.favorita ? "active" : ""}" data-index="${jogadoras.indexOf(j)}">★</span>
+        <span class="favorite-btn ${j.favorita ? "active" : ""}" data-index="${index}">★</span>
         <img class="card-photo" src="${j.foto}" alt="${j.nome}">
         <div class="card-header">
           <h2 class="card-name">${j.nome}</h2>
@@ -84,6 +84,7 @@ function displayJogadoras() {
           <li><span class="stat-label">Assist.</span><span class="stat-value">${j.assistencias}</span></li>
           <li><span class="stat-label">Jogos</span><span class="stat-value">${j.jogos}</span></li>
         </ul>
+        <button class="edit-btn" onclick="editarJogadora(${index})">Editar</button>
       </div>
     `;
   });
@@ -126,6 +127,35 @@ function addJogadora(e) {
   // limpa o form
   alert("Jogadora adicionada com sucesso!");
   e.target.reset();
+}
+
+function editarJogadora(index) {
+  const j = jogadoras[index];
+
+  const novoNome = prompt("Edite o nome:", j.nome);
+  if (novoNome !== null) j.nome = novoNome;
+
+  const novaPosicao = prompt("Edite a posição:", j.posicao);
+  if (novaPosicao !== null) j.posicao = novaPosicao;
+
+  const novoClube = prompt("Edite o clube:", j.clube);
+  if (novoClube !== null) j.clube = novoClube;
+
+  const novaFoto = prompt("Edite a URL da foto:", j.foto);
+  if (novaFoto !== null) j.foto = novaFoto;
+
+  const novosGols = prompt("Edite os gols:", j.gols);
+  if (novosGols !== null) j.gols = parseInt(novosGols, 10);
+
+  const novasAssist = prompt("Edite as assistências:", j.assistencias);
+  if (novasAssist !== null) j.assistencias = parseInt(novasAssist, 10);
+
+  const novosJogos = prompt("Edite os jogos:", j.jogos);
+  if (novosJogos !== null) j.jogos = parseInt(novosJogos, 10);
+
+  salvarLocalStorage();  
+  displayJogadoras();
+  alert("Jogadora editada com sucesso!");
 }
 
 displayJogadoras();
