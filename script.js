@@ -73,6 +73,7 @@ function displayJogadoras() {
   jogadoras.forEach(j => {
     list.innerHTML += `
       <div class="card">
+        <span class="favorite-btn ${j.favorita ? "active" : ""}" data-index="${jogadoras.indexOf(j)}">★</span>
         <img class="card-photo" src="${j.foto}" alt="${j.nome}">
         <div class="card-header">
           <h2 class="card-name">${j.nome}</h2>
@@ -85,5 +86,13 @@ function displayJogadoras() {
         </ul>
       </div>
     `;
+  });
+  document.querySelectorAll(".favorite-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const idx = btn.dataset.index;
+      jogadoras[idx].favorita = !jogadoras[idx].favorita;
+      salvarLocalStorage();
+      displayJogadoras(); // re-render para atualizar a estrela
+    });
   });
 }
