@@ -169,5 +169,35 @@ function deletarJogadora(index) {
   }
 }
 
+function buscarJogadoras() {
+  const termo = document.getElementById("searchInput").value.toLowerCase();
+  const list = document.getElementById("jogadorasList");
+  list.innerHTML = "";
+
+  jogadoras
+    .filter(j => j.nome.toLowerCase().includes(termo) || j.posicao.toLowerCase().includes(termo))
+    .forEach((j, index) => {
+      list.innerHTML += `
+      <div class="card">
+        <span class="favorite-btn ${j.favorita ? "active" : ""}" data-index="${index}">★</span>
+        <img class="card-photo" src="${j.foto}" alt="${j.nome}">
+        <div class="card-header">
+          <h2 class="card-name">${j.nome}</h2>
+          <p class="card-meta">${j.posicao} • ${j.clube}</p>
+        </div>
+        <ul class="card-stats">
+          <li><span class="stat-label">Gols</span><span class="stat-value">${j.gols}</span></li>
+          <li><span class="stat-label">Assist.</span><span class="stat-value">${j.assistencias}</span></li>
+          <li><span class="stat-label">Jogos</span><span class="stat-value">${j.jogos}</span></li>
+        </ul>
+        <button class="edit-btn" onclick="editarJogadora(${index})">Editar</button>
+        <button class="delete-btn" onclick="deletarJogadora(${index})">Excluir</button>
+      </div>
+    `;
+  });
+}
+
+document.getElementById("searchInput").addEventListener("input", buscarJogadoras);
+
 
 displayJogadoras();
